@@ -27,9 +27,9 @@ package demo.framework.security.userdetails;
 public class UserDetailsVO {
 
 	private String userId;
+	private String password;
 	private String userNm;
 	private String roleId;
-
 	/**
 	 * @return the userId
 	 */
@@ -41,6 +41,18 @@ public class UserDetailsVO {
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	/**
 	 * @return the userNm
@@ -66,14 +78,13 @@ public class UserDetailsVO {
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "UserDetailsVO [userId=" + userId + ", userNm=" + userNm
-				+ ", roleId=" + roleId + "]";
+		return "UserDetailsVO [userId=" + userId + ", password=" + password
+				+ ", userNm=" + userNm + ", roleId=" + roleId + "]";
 	}
 
 }

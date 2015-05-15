@@ -20,10 +20,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+
+import demo.framework.response.BaseResponse;
+import demo.framework.security.userdetails.CustomUserDetails;
+import demo.framework.security.userdetails.UserDetailsVO;
 
 /**
  * <PRE>
@@ -41,17 +46,19 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-		logger.debug("LOGIN SUCCESS : {}");
-	}
 
-	@Override
-	public void setAlwaysUseDefaultTargetUrl(boolean alwaysUseDefaultTargetUrl) {
-		super.setAlwaysUseDefaultTargetUrl(alwaysUseDefaultTargetUrl);
-	}
+		logger.debug("LOGIN SUCCESS : onAuthenticationSuccess");
 
-	@Override
-	public void setDefaultTargetUrl(String defaultTargetUrl) {
-		super.setDefaultTargetUrl(defaultTargetUrl);
+		if ("application/json".equals(request.getHeader("Content-Type"))) {
+			ObjectMapper mapper = new ObjectMapper();
+			BaseResponse baseResponse = new BaseResponse();
+			CustomUserDetails principal = (CustomUserDetails) authentication.getPrincipal();
+			UserDetailsVO user = (UserDetailsVO)principal.getUserVO();
+			baseResponse.setData(user);
+			baseResponse.setResponseOK();
+			response.setCharacterEncoding("UTF-8");
+			mapper.writeValue(response.getWriter(), baseResponse);
+		}
 	}
 
 }
