@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.customerTendency.dao.CustomerTendencyDAO">
+
+<insert id="inputCT" parameterType="demo.customerTendency.vo.CustomerTendencyVO">
+		insert into customerTendency
+		(customerSrls,simple,fancy,cute,lovely,casual,point) values
+		(#{customerSrls},#{simple},#{fancy},#{cute},#{lovely},#{casual},#{point});
+	</insert>
+	<select id="pullCT" parameterType="Integer" resultType="demo.customerTendency.vo.CustomerTendencyVO">
+		select * from customerTendency where customerSrls=#{value};
+	</select>
+	<update id="updateCT" parameterType="demo.customerTendency.vo.CustomerTendencyVO">
+		update customerTendency set
+		simple=#{simple}, fancy=#{fancy}, cute=#{cute}, lovely=#{lovely}, casual=#{casual}, point=#{point}
+		where customerSrls=#{customerSrls};
+	</update>
+	<select id="pullAllCT" resultType="demo.customerTendency.vo.CustomerTendencyVO">
+		select * form customerTendency;
+	</select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="demo.customer.dao.CustomerDAO">
+	<insert id="joinCustomer" parameterType="demo.customer.vo.CustomerVO">
+		insert into customer
+		(email,password,mailing,name,phone,location,joinDate) values
+		(#{email},#{password},#{mailing},#{name},#{phone},#{location},#{joinDate});
+	</insert>
+	<select id="pullPwCustomer" parameterType="String" resultType="String">
+		select password from customer where email=#{value};
+	</select>
+	<select id="findCustomer" parameterType="String" resultType="demo.customer.vo.CustomerVO">
+		select * from customer where email=#{value};
+	</select>
+	<update id="updateCustomer" parameterType="demo.customer.vo.CustomerVO">
+		update customer set
+		password=#{password}, mailing=#{mailing}, name=#{name}, birthDate=#{birthDate}, phone=#{phone}, location=#{location}
+		where email=#{email};
+	</update>
+	<delete id="deleteCustomer" parameterType="String">
+		delete from customer where email=#{value};
+	</delete>
+	<select id="loginCustomer" resultType="demo.customer.vo.CustomerVO">
+		select * from customer where email=#{email} and password=#{password};
+	</select>
+	<select id="pullSrlCustomer" parameterType="String" resultType="Integer">
+		select srl from customer where email=#{value};
+	</select>
+	<select id="pullAllCustomer" resultType="demo.customer.vo.CustomerVO">
+		select * from customer;
+	</select>
+	<select id="pullCustomer" parameterType="Integer" resultType="demo.customer.vo.CustomerVO">
+		select * from customer where srl=#{value};
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="demo.event.dao.EventDAO">
+	<insert id="setEvent" parameterType="demo.event.vo.EventVO">
+		insert into event
+		(itemSrl,joinDate,endDate,status) values
+		(#{itemSrl},#{joinDate},#{endDate},#{status});
+	</insert>
+	<update id="alterEvent" parameterType="demo.event.vo.EventVO">
+		update event set
+		endDate=#{endDate}, status=#{status} where itemSrl=#{itemSrl};
+	</update>
+	<delete id="deleteEvent" parameterType="Integer">
+		delete from event where itemSrl=#{itemSrl};
+	</delete>
+	<select id="pullEvent" parameterType="Integer" resultType="demo.event.vo.EventVO">
+		select * from event where itemSrl=#{itemSrl};
+	</select>
+	<select id="pullAllEvent" resultType="demo.event.vo.EventVO">
+		select * from event;
+	</select>
+</mapper>

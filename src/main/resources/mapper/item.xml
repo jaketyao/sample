@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="demo.item.dao.ItemDAO">
+	<insert id="inputItem" parameterType="demo.item.vo.ItemVO">
+		insert into item
+		(storeSrl,title,content,price,simple,fancy,cute,lovely,casual,point) values
+		(#{storeSrl},#{title},#{content},#{price},#{simple},#{fancy},#{cute},#{lovely},#{casual},#{point});
+	</insert>
+
+	<select id="pullAllItem" parameterType="Integer" resultType="demo.item.vo.ItemVO">
+		select * from item where storeSrl=#{storeSrl};
+	</select>
+	<select id="pullItem"  resultType="demo.item.vo.ItemVO">
+		select * from item where srl = #{srl};
+	</select>
+	<update id="alterItem" parameterType="demo.item.vo.ItemVO">
+		update item set
+		title=#{title}, content=#{content}, price=#{price}, simple=#{simple}, fancy=#{fancy}, cute=#{cute}, lovely=#{lovely}, casual=#{casual}, point=#{point}
+		where storeSrl=#{storeSrl};
+	</update>
+	<delete id="deleteItem">
+		delete from store where storeSrl=#{storeSrl} and srl=#{srl};
+	</delete>
+	<select id="pullStoreSrl" parameterType="Integer" resultType="Integer">
+		select storeSrl from item where srl = #{srl};
+	</select>
+</mapper>
