@@ -44,10 +44,10 @@ public class DataSourceConfig {
 	@Bean
     public DataSource dataSource() {
     	BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://192.168.1.37:5432/ccei");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("1");
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://test.fallintrip.co.kr/beauty?useUnicode=true&characterEncoding=UTF-8");
+		dataSource.setUsername("haneu89");
+		dataSource.setPassword("wlsgud5500");
 		dataSource.setDefaultAutoCommit(false);
 		return dataSource;
     }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.store.dao.StoreDAO">
+	<insert id="joinStore" parameterType="demo.store.vo.StoreVO">
+		insert into 
+		store(email,password,phone,location,division,worker,shortInfo,detailInfo) 
+		values
+		(#{email},#{password},#{phone},#{location},#{division},#{worker},#{shortInfo},#{detailInfo})
+	</insert>
+	<update id="updateStore" parameterType="demo.store.vo.StoreVO">
+		update store set
+		password=#{password}, phone=#{phone}, location=#{location}, division=#{division}, worker=#{worker}, shortInfo=#{shortInfo}, detailInfo=#{detailInfo}
+		where email=#{email};
+	</update>
+	<delete id="deleteStore" parameterType="String">
+		delete from store where email=#{email};
+	</delete>
+	<select id="pullPwStore" parameterType="String" resultType="String">
+		select password from store where email=#{value};
+	</select>
+	<select id="findStore" parameterType="String" resultType="demo.store.vo.StoreVO">
+		select * from store where email=#{value};
+	</select>
+	<select id="loginStore" resultType="demo.store.vo.StoreVO">
+		select * from store where email=#{email} and password=#{password};
+	</select>
+	
+</mapper>
