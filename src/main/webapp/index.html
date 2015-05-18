@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SAMPLE</title>
+
+
+<!-- vendor jquery -->
+<script src="vendor/jquery/jquery-1.11.2.min.js"></script>
+<script src="vendor/jquery/jquery-ui.js"></script>
+
+<!-- vendor angular -->
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular/angular-ui-router.min.js"></script>
+
+
+<!-- main -->
+<script type="text/javascript" src="app.module.js"></script>
+<script type="text/javascript" src="app.route-config.js"></script>
+<script type="text/javascript" src="app.constants.js"></script>
+
+
+<!-- component -->
+<script type="text/javascript" src="/components/sample/sample.js"></script>
+<script type="text/javascript" src="/components/sample/sample-data.service.js"></script>
+<script type="text/javascript" src="/components/sample/sample-list.js"></script>
+
+
+</head>
+
+<body ng-app="app">
+
+	<div id="wrapper">
+		<div id="container">
+
+			<a href="" ui-sref='sample.list'>sample click</a>
+
+			<!-- lnb/contents -->
+			<div id="content" class="clear" ui-view>
+			</div>
+			<!-- lnb/contents -->
+
+		</div>
+	</div>
+
+</body>
+</html>
+
