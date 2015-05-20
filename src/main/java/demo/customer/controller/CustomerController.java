@@ -24,7 +24,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerService service;
 
-	// 고객 리스트 페이지를 호출한다
+	// 고객 리스트 페이지를 호출한다  sfdff
 	// *현재 매장은 하나라고 가정하기 때문에 pullAllCustomer에 별도의 파라미터는 없다
 	@RequestMapping(value = "/list")
 	public String CustomerList(Model model) {
