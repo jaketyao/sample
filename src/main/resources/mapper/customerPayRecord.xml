@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="demo.customerPayRecord.dao.CustomerPayRecordDAO">
+	<insert id="inputPayRecord" parameterType="demo.customerPayRecord.vo.CustomerPayRecordVO">
+		insert into customerPayRecord
+		(customerSrl, useDate, useBalance, balance, useBalanceContent) values
+		(#{customerSrl},#{useDate},#{useBalance},#{balance},#{useBalanceContent});
+	</insert>
+
+</mapper>
