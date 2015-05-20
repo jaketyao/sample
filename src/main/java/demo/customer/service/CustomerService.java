@@ -61,7 +61,10 @@ public class CustomerService {
 	}
 
 	public CustomerVO pullCustomer(int srl) {
-		// TODO Auto-generated method stub
 		return dao.pullCustomer(srl);
+	}
+	
+	public String pullPushKey(String email) {
+		return dao.pullPushKey(email);
 	}
 }

@@ -18,4 +18,5 @@ public interface ItemDAO {
 	int deleteItem(int storeSrl, int srl);
 	List<ItemVO> pullAllItem(int storeSrl);
 	int pullStoreSrl(int srl);
+	
 }

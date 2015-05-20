@@ -20,6 +20,7 @@ public class CustomerVO {
 	private Date joinDate;
 	private Date lastLoginDate;
 	private Date alterDate;
+	private String pushKey;
 	public int getSrl() {
 		return srl;
 	}
@@ -86,14 +87,21 @@ public class CustomerVO {
 	public void setAlterDate(Date alterDate) {
 		this.alterDate = alterDate;
 	}
+
+	public String getPushKey() {
+		return pushKey;
+	}
+	public void setPushKey(String pushKey) {
+		this.pushKey = pushKey;
+	}
 	@Override
 	public String toString() {
-		return "Customer [srl=" + srl + ", email=" + email + ", password="
+		return "CustomerVO [srl=" + srl + ", email=" + email + ", password="
 				+ password + ", mailing=" + mailing + ", name=" + name
 				+ ", birthDate=" + birthDate + ", phone=" + phone
 				+ ", location=" + location + ", joinDate=" + joinDate
 				+ ", lastLoginDate=" + lastLoginDate + ", alterDate="
-				+ alterDate + "]";
+				+ alterDate + ", pushKey=" + pushKey + "]";
 	}
 	
 	

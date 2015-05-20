@@ -20,4 +20,5 @@ public interface CustomerDAO {
 	int pullSrlCustomer(String email);
 	List<CustomerVO> pullAllCustomer();
 	CustomerVO pullCustomer(int srl);
+	String pullPushKey(String email);
 }

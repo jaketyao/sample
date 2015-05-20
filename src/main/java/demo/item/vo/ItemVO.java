@@ -19,6 +19,8 @@ public class ItemVO {
 	private int lovely;
 	private int casual;
 	private int point;
+	private String photo;
+	
 	public int getStoreSrl() {
 		return storeSrl;
 	}
@@ -85,12 +87,20 @@ public class ItemVO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 	@Override
 	public String toString() {
-		return "Item [storeSrl=" + storeSrl + ", srl=" + srl + ", title="
+		return "ItemVO [storeSrl=" + storeSrl + ", srl=" + srl + ", title="
 				+ title + ", content=" + content + ", price=" + price
 				+ ", simple=" + simple + ", fancy=" + fancy + ", cute=" + cute
 				+ ", lovely=" + lovely + ", casual=" + casual + ", point="
-				+ point + "]";
+				+ point + ", photo=" + photo + "]";
 	}
+	
 }

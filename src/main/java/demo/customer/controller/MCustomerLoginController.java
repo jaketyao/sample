@@ -38,7 +38,7 @@ public class MCustomerLoginController {
 		return service.deleteCustomerCheck(customer.getEmail());
 	}
 	
-	@RequestMapping(value="/info", method=RequestMethod.POST)
+	@RequestMapping(value="/info", method=RequestMethod.GET)
 	public CustomerVO CustomerInfo(@RequestParam String email) {
 		return service.customerInfo(email);
 	}

@@ -10,7 +10,7 @@
 		(#{email},#{password},#{mailing},#{name},#{phone},#{location},#{joinDate});
 	</insert>
 	<select id="pullPwCustomer" parameterType="String" resultType="String">
-		select password from customer where email=#{value};
+		select password as pullPwCustomer from customer where email=#{value};
 	</select>
 	<select id="findCustomer" parameterType="String" resultType="demo.customer.vo.CustomerVO">
 		select * from customer where email=#{value};
@@ -27,12 +27,15 @@
 		select * from customer where email=#{email} and password=#{password};
 	</select>
 	<select id="pullSrlCustomer" parameterType="String" resultType="Integer">
-		select srl from customer where email=#{value};
+		select srl as pullSrlCustomer from customer where email=#{value};
 	</select>
 	<select id="pullAllCustomer" resultType="demo.customer.vo.CustomerVO">
 		select * from customer;
 	</select>
 	<select id="pullCustomer" parameterType="Integer" resultType="demo.customer.vo.CustomerVO">
 		select * from customer where srl=#{value};
+	</select>
+	<select id="pullPushKey" parameterType="String" resultType="String">
+		select pushKey as pullPushKey from customer where email=#{value};
 	</select>
 </mapper>
