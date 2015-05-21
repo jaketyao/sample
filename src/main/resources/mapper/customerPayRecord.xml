@@ -6,8 +6,19 @@
 <mapper namespace="demo.customerPayRecord.dao.CustomerPayRecordDAO">
 	<insert id="inputPayRecord" parameterType="demo.customerPayRecord.vo.CustomerPayRecordVO">
 		insert into customerPayRecord
-		(customerSrl, useDate, useBalance, balance, useBalanceContent) values
-		(#{customerSrl},#{useDate},#{useBalance},#{balance},#{useBalanceContent});
+		(customerSrl, useDate, useBalance, useBalanceContent, prepayment) values
+		(#{customerSrl},#{useDate},#{useBalance},#{useBalanceContent},#{prepayment});
 	</insert>
+	<select id="pullCustomerPayRecordList" parameterType="Integer">
+		select * from customerPayRecord where customerSrl=#{customerSrl};
+	</select>
+	<select id="pullCustomerBalance" parameterType="Integer">
+		select useBalance,prepayment from customerPayRecord where customerSrl=#{customerSrl};
+	</select>
+	<select id="pullTodaySales" parameterType="Date">
+		select useBalance as pullDaySales from customerPayRecord where current_date();
+	</select>
+	<select id="pullTermSales" ></select>
+	
 
 </mapper>
