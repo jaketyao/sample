@@ -16,9 +16,17 @@
 		select useBalance,prepayment from customerPayRecord where customerSrl=#{customerSrl};
 	</select>
 	<select id="pullTodaySales" parameterType="Date">
-		select useBalance as pullDaySales from customerPayRecord where current_date();
+		select useBalance as pullDaySales from customerPayRecord where date_format(current_date(),'%Y-%m-%d');
 	</select>
-	<select id="pullTermSales" ></select>
-	
+	<select id="pullWeekSales">
+		select useBalance as pullTermSales from customerPayRecord where date_format(useDate,'%Y-%m-%d')
+		between date_format(date_add(now(),interval -7 day),'%Y-%m-%d')
+		and date_format(now(),'%Y-%m-%d');
+	</select>
+	<select id="pullMonthSales">
+		select useBalance as pullMonthSales from customerPayRecord where date_format(useDate, '%Y-%m-%d')
+		between date_format(date_add(now(),interval -30 day),'%Y-%m-%d')
+		and date_format(now(),'%Y-%m-%d');
+	</select>
 
 </mapper>
